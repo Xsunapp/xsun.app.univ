@@ -182,6 +182,14 @@
   </div>
 
 
+
+<div style="display: flex; align-items: center; padding: 1vw; margin-right: 10vw; z-index: 1000;">
+  <span style="font-size: 3.5vw; color: black; margin-right: 2vw;"> <!-- زيادة المسافة -->
+    xsun 
+  </span>
+
+</div>
+
 <div style="display: flex; align-items: center; padding: 1vw; margin-right: 10vw; z-index: 1000;">
     <span style="font-size: 1.5vw; color: white; margin-right: 2vw;"> <!-- زيادة المسافة -->
         Total Balance   
@@ -303,7 +311,7 @@
 
 
     <!-- Button to show/hide sidebar -->
-<div class="menu-button" onclick="toggleSidebar()" style="margin-left: 3vw; margin-top: 2vw; background-color: #333; border-radius: 2vw; border: 0.2vw solid #333; position: ; top: 0; left: 0; font-size: 1.5vh;">
+<div class="menu-button" onclick="toggleSidebar()" style="margin-left: 3vw; margin-top: 3%; background-color: #333; border-radius: 2vw; border: 0.2vw solid #333; position: ; top: 0; left: 0; font-size: 1.5vh;">
     &#9776; <!-- أيقونة القائمة -->
 </div>
 
@@ -1061,6 +1069,85 @@ body {
 
 /* عندما يتم تحميل الصفحة بالكامل والتحقق من المستخدم */
 
+  @media screen and (max-width: 767px) {
+    /* قم بتعديل القواعد الخاصة بالشاشات الصغيرة هنا */
+  }
+  
+  /* قواعد CSS للشاشات المتوسطة (الأجهزة اللوحية) */
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* قم بتعديل القواعد الخاصة بالشاشات المتوسطة هنا */
+  }
+  
+  /* قواعد CSS للشاشات الكبيرة (الحواسيب) */
+  @media screen and (min-width: 1025px) {
+    /* قم بتعديل القواعد الخاصة بالشاشات الكبيرة هنا */
+  }      
+        
+        
+        
+
+        
+
+        
+           @media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .form-group {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+     
+        
+    @media (max-width: 734px) {
+            .button-group {
+                flex-direction: column; /* جعل الأزرار تتراص عموديًا */
+            }
+        }    
+        
+.container {
+    display: flex;
+    flex-direction: column; /* لتوزيع العناصر بشكل عمودي */
+    align-items: center; /* توسيط العناصر */
+    justify-content: center; /* توسيط العناصر */
+    height: 100vh; /* استخدام كامل ارتفاع الشاشة */
+}
+
+
+/* تنسيق للهواتف */
+@media (max-width: 600px) {
+    .container {
+        font-size: 14px; /* حجم خط أصغر للهواتف */
+    }
+}
+
+/* تنسيق للأجهزة اللوحية */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        font-size: 16px; /* حجم خط أكبر للأجهزة اللوحية */
+    }
+}
+
+/* تنسيق لأجهزة الكمبيوتر الكبيرة */
+@media (min-width: 1025px) {
+    .container {
+        font-size: 18px; /* حجم خط أكبر لأجهزة الكمبيوتر الكبيرة */
+    }
+}
+
 
       
 @media screen and (min-width: 768px) {
@@ -1072,7 +1159,7 @@ body {
   #inviteFriendsContainer,
   #kycContainer, 
   #passwordResetForm {
-    width: 50%;
+    width: 100%;
     /* العرض يكون أكبر على الشاشات الكبيرة */
   }
 
