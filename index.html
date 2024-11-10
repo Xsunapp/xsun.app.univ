@@ -164,158 +164,117 @@
 
 
 
-<div id="secretContent" style="background-color: black; color: white; font-family: Arial, sans-serif; padding: 2vh; height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: space-between; margin-top: 15%;">
-  
-  <div style="position: absolute; top: 0; left: 0; right: 0; height: 15%; background-color: ; z-index: -1;"></div> <!-- خلفية بيضاء -->
-  
+<div id="secretContent" style="background-color: #1e1e1e; color: white; font-family: Arial, sans-serif; padding: 2vh; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+
+  <!-- شريط علوي فارغ للتصميم -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; height: 15%; background: linear-gradient(to bottom, #333, transparent); z-index: -1;"></div>
+
+  <!-- الشريط الجانبي والرصيد -->
 
 
-
-
-        
-
-
-
-<div style="display: flex; align-items: center; gap: 1vw; position: absolute; top: 2vh; right: 2vw;">
-    <div style="width: 6vh; height: 6vh; border-radius: 50%; background-image: url('https://firebasestorage.googleapis.com/v0/b/xsun-b171d.appspot.com/o/bitcoin-225079_640.png?alt=media&token=e226582c-f4a8-4ee6-819c-0588d1a1a80f'); background-size: cover;"></div>
-    <span id="btcBalanceAmount" style="font-size: 3.5vh; color: white;">0.00000000</span>
+  <!-- أيقونة البيتكوين وكمية الرصيد -->
+  <div style="display: flex; align-items: center; gap: 1vw; position: absolute; top: 2vh; right: 2vw;">
+    <div style="width: 6vh; height: 6vh; border-radius: 50%; background-image: url('https://firebasestorage.googleapis.com/v0/b/xsun-b171d.appspot.com/o/bitcoin-225079_640.png?alt=media&token=e226582c-f4a8-4ee6-819c-0588d1a1a80f'); background-size: cover; box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);"></div>
+    <span id="btcBalanceAmount" style="font-size: 3.5vh; color: #ffd700;">0.00000000</span>
   </div>
-
-
-
+<br><br><br><br>
 <div style="display: flex; align-items: center; padding: 1vw; margin-right: 10vw; z-index: 1000;">
-  <span style="font-size: 3.5vw; color: black; margin-right: 2vw;"> <!-- زيادة المسافة -->
-    xsun 
+  <span style="font-size: 1.5vw; color: #333; margin-right: 2vw; font-weight: bold;"> <!-- زيادة المسافة -->
+    Total Balance
   </span>
 
-</div>
 
-<div style="display: flex; align-items: center; padding: 1vw; margin-right: 10vw; z-index: 1000;">
-    <span style="font-size: 1.5vw; color: white; margin-right: 2vw;"> <!-- زيادة المسافة -->
-        Total Balance   
-    </span>
+  <span style="font-size: 8vw; color: white;">$</span>
+  <span style="width: 1vw;"></span>
 
+  <span class="total-balance" style="font-size: 7vw; color: white; font-weight: bolder; margin-right: 2vw;"> <!-- زيادة المسافة -->
+    0.00
+  </span>
 
-        <span style="font-size: 8vw; color: white;">$</span>
-        <span style="width: 1vw;"></span>
-
-    <span class="total-balance" style="font-size: 7vw; color: white; font-weight: bolder; margin-right: 2vw;"> <!-- زيادة المسافة -->
-        0.00
-    </span>
-
-        <span style="width: 2vw;"></span>
+  <span style="width: 2vw;"></span>
 
 
-    <span id="eye-toggle" onclick="toggleBalanceVisibility()" style="font-size: 5vw; color: white; cursor: pointer;">
-      <i class="fas fa-eye" id="eye-icon" style="font-size: 5vw;"></i>
-    </span>
+  <span id="eye-toggle" onclick="toggleBalanceVisibility()" style="font-size: 5vw; color: lightgray; cursor: pointer;">
+    <i class="fas fa-eye" id="eye-icon" style="font-size: 5vw;"></i>
+  </span>
 
 
 </div>
-
-
-
-
-     
-
-  
-
-
-
-
-  <button id="startMiningButton" onclick="startMining()" style="position: absolute; top: 60px; z-index: 999; display: none;">Start Mining</button>
 
 
   <!-- واجهة معلومات التعدين -->
-  <div style="text-align: center; width: 90%; font-size: 1.5vh;">
-    <p style="background-color: #333; color: white; padding: 1vh 0; border-radius: 10px; font-size: 2.5vh;">Time Left: <span id="countdownContainer"></span></p>
-    <p style="background-color: #333; color: white; padding: 1vh 0; border-radius: 10px; font-size: 2.5vh;">Balance: <span id="balance">0.00000000</span></p>
-    <p id="balanceInUSD" style="background-color: #333; color: white; padding: 1vh 0; border-radius: 10px; font-size: 2.5vh;">Balance in USD: $0.00</p>
+  <div style="text-align: center; width: 90%; font-size: 1.5vh; margin-top: 2vh;">
+    <p style="background-color: #444; color: white; padding: 1vh 0; border-radius: 10px; font-size: 2.5vh;">Time Left: <span id="countdownContainer"></span></p>
+    <p style="background-color: #444; color: white; padding: 1vh 0; border-radius: 10px; font-size: 2.5vh;">Balance: <span id="balance">0.00000000</span></p>
+    <p id="balanceInUSD" style="background-color: #444; color: white; padding: 1vh 0; border-radius: 10px; font-size: 2.5vh;">Balance in USD: $0.00</p>
   </div>
 
   <!-- زر بدء التعدين -->
+  <button id="addBtcButton" style="background-color: #28a745; color: white; font-size: 2.5vh; padding: 1vh 3vh; border-radius: 10px; cursor: pointer; box-shadow: 0 0 10px rgba(40, 167, 69, 0.7);">Start Mining</button>
 
-
-    <button id="addBtcButton" style="background-color: #28a745; color: white; font-size: 2.5vh; padding: 1vh 3vh; border-radius: 5px; cursor: pointer;">
-      Start Mining
-    </button>
-    
-    
-
-    <br>
-
-
-
-<!-- إدخال عنوان المحفظة واختيار الشبكة -->
-<div style="display: flex; align-items: center; gap: 1vw; width: 90%; justify-content: flex-start; margin-top: 2vh;">
-    <input type="text" id="enterWalletAddress" placeholder="Enter Wallet Address" style="width: 65%; font-size: 2.5vh; padding: 1vh; text-align: center; border: 2px solid white; border-radius: 5px; background-color: black; color: white;" readonly>
-    <select id="networkSelect" style="width: 30%; font-size: 2vh; padding: 0.6vh; text-align: center; border: none; border-radius: 5px; height: 100%; margin-top: -10px;">
-   <option value="NEAR">Network</option>
-        <option value="NEAR">NEAR</option>
-        <option value="BSC20">BSC20</option>
-        <option value="ERC20">ERC20</option>
-        <option value="TRC20">TRC20</option>
-        <option value="BTC">BTC</option>
+  <!-- إدخال عنوان المحفظة واختيار الشبكة -->
+  <div style="display: flex; align-items: center; gap: 1vw; width: 90%; justify-content: space-between; margin-top: 2vh;">
+    <input type="text" id="enterWalletAddress" placeholder="Enter Wallet Address" style="width: 65%; font-size: 2.5vh; padding: 1vh; border: 2px solid #555; border-radius: 10px; background-color: #222; color: white;" readonly>
+    <select id="networkSelect" style="width: 30%; font-size: 2vh; padding: 1vh; border-radius: 10px; background-color: #333; color: white; margin-top: -2vh;">
+      <option value="NEAR">Network</option>
+      <option value="NEAR">NEAR</option>
+      <option value="BSC20">BSC20</option>
+      <option value="ERC20">ERC20</option>
+      <option value="TRC20">TRC20</option>
+      <option value="BTC">BTC</option>
     </select>
-</div>
+  </div>
 
-
-<!-- إدخال المبلغ وزر Max -->
-<div style="display: flex; gap: 1vw; width: 90%; justify-content: center;">
-    <input type="text" id="amount" placeholder="Enter Amount" style="width: 65%; font-size: 2.5vh; padding: 1vh; text-align: center; border: 2px solid white; border-radius: 5px; background-color: black; color: white;" readonly>
-    <button onclick="fillMax()" style="width: 30%; font-size: 2.5vh; background-color: #f0ad4e; color: white; border-radius: 5px; cursor: pointer;">Max</button>
-</div>
+  <!-- إدخال المبلغ وزر Max -->
+  <div style="display: flex; gap: 1vw; width: 90%; justify-content: center; margin-top: 1vh;">
+    <input type="text" id="amount" placeholder="Enter Amount" style="width: 65%; font-size: 2.5vh; padding: 1vh; border: 2px solid #555; border-radius: 10px; background-color: #222; color: white;" readonly>
+    <button onclick="fillMax()" style="width: 30%; font-size: 2.5vh; background-color: #f0ad4e; color: white; border-radius: 10px; cursor: pointer; box-shadow: 0 0 10px rgba(240, 173, 78, 0.7);">Max</button>
+  </div>
 
   <!-- زر السحب -->
-  <button id="withdrawButton" disabled onclick="withdrawAmount()" style="background-color: #6c757d; color: white; font-size: 2.5vh; padding: 1vh 3vh; border-radius: 5px; cursor: not-allowed;">Withdraw </button>
+  <button id="withdrawButton" disabled onclick="withdrawAmount()" style="background-color: #6c757d; color: white; font-size: 2.5vh; padding: 1vh 3vh; border-radius: 10px; cursor: not-allowed; margin-top: 2vh;">Withdraw</button>
 
-
-
-<div id="totalMiningCount" style="font-size: 2vw; color: white; margin: 0; padding-right: 4vw; background-color: transparent; margin-right: 4vw;">
-    ~ 𝚃𝚘𝚝𝚊𝚕 𝚇𝚜𝚞𝚗 𝙼𝚒𝚗𝚎𝚍 ~
-    :<span id="minedCoinsTotal">0</span>
-    <span class="gear-icon" style="display: inline-block; margin-left: 0.5vw;">⚙️</span>
-
-
-<div style="display: flex; justify-content: flex-end; align-items: center; padding: 1vw; margin-right: 7.9vh; z-index: 1000;">
-
-  
-</div>
-
+  <!-- المجموع الكلي للتعدين -->
+  <div id="totalMiningCount" style="font-size: 2vw; color: white; margin: 0; padding-right: 4vw; margin-right: 4vw;">
+    ~ 𝚃𝚘𝚝𝚊𝚕 𝚇𝚜𝚞𝚗 𝙼𝚒𝚗𝚎𝚍 ~ : <span id="minedCoinsTotal">0</span>
+    <span class="gear-icon" style="display: inline-block; margin-left: 0.5vw; transform: rotate(0deg); transition: transform 0.5s ease;">⚙️</span>
+  </div>
 
   <!-- عنوان العقد وصورة BscScan -->
-<div style="display: flex; justify-content: flex-end; margin-top: 2vh; position: relative; background-color:  ">
-  <div onclick="copyContract()" style="cursor: pointer; font-size: 2.5vw; background-color: transparent; color: white; padding: 10px; border: 1px solid black; border-radius: 5px; display: flex; align-items: center; touch-action: none; background-color: ; color: white;">
-            <span style="margin-right: 10px;">Contract address BSC20:</span>
-            <textarea id="contractAddress" readonly style="flex: 1; border: none; background-color: transparent; font-size: 1vw; color: white; resize: none;">0xEf06e2D9C18680316E63944be3d881093Aa8d542</textarea>
-            <a href="https://bscscan.com/address/0xEf06e2D9C18680316E63944be3d881093Aa8d542" target="_blank" style="margin-left: 10px;">
-            <img src="https://firebasestorage.googleapis.com/v0/b/xsun-b171d.appspot.com/o/1_RbK1YYzgQg6uni0TXU4Ghw.png?alt=media&token=3a23e26f-98dc-45ea-afd8-caae91cf59e5" alt="BscScan" style="width: 4.5vw; height: auto; vertical-align: middle;">
-        </a>
+  <div style="display: flex; justify-content: flex-end; align-items: center; margin-top: 2vh;">
+    <div onclick="copyContract()" style="cursor: pointer; font-size: 2.5vw; padding: 10px; border: 1px solid #555; border-radius: 10px; display: flex; align-items: center; background-color: #333; color: white;">
+      <span style="margin-right: 10px;">Contract address BSC20:</span>
+      <textarea id="contractAddress" readonly style="flex: 1; background-color: transparent; font-size: 1vw; color: white;">0xEf06e2D9C18680316E63944be3d881093Aa8d542</textarea>
+      <a href="https://bscscan.com/address/0xEf06e2D9C18680316E63944be3d881093Aa8d542" target="_blank">
+        <img src="https://firebasestorage.googleapis.com/v0/b/xsun-b171d.appspot.com/o/1_RbK1YYzgQg6uni0TXU4Ghw.png?alt=media&token=3a23e26f-98dc-45ea-afd8-caae91cf59e5" alt="BscScan" style="width: 4.5vw; height: auto; margin-left: 10px;">
+      </a>
     </div>
-</div>
+  </div>
+  
+  <br><br>
 
+  <!-- شريط التنقل السفلي -->
+  <div id="navButtons" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #333; padding: 1vh 0; display: flex; justify-content: space-around; border-radius: 1vw;">
+    <button onclick="showInviteFriends()" style="font-size: 2.5vw; color: black;">👥 Referral</button>
+    <button onclick="showKyc()" style="font-size: 2.5vw; color: black;">🔐 KYC</button>
+    <button onclick="showEarnings()" style="font-size: 2.5vw; color: black;">💳 Wallet</button>
+    <button onclick="showRoadmap()" style="font-size: 2.5vw; color: black;">🗺️ Roadmap</button>
+  </div>
 
-<div id="navButtons" style="position: fixed; bottom: -0%; left: -0.7vw; background-color: transparent ; padding: 1px; display: flex; justify-content: space-between; width: 100%; border-radius: 2vw; z-index: 10000">
-
-
-  <button onclick="showInviteFriends()" style="border-top-left-radius: 4vw; border-bottom-right-radius: 4vw; font-size: vw; background-color: #333; color: white; margin-left: 3%;">👥 Referral</button>
-
-  <button onclick="showKyc()" style=" font-size: vw; background-color: #333; color: white;">🔐 KYC</button>
-  <button onclick="showEarnings()" style="font-size: vw; background-color: #333; color: white"> 💳Wallet</button>
-  <button onclick="showRoadmap()" style=" font-size: vw; margin-right: 3.5%;  background-color: #333; color: white; border-top-right-radius: vw; border-bottom-right-radius: vw;">🗺️ Roadmap</button>
-
-</div>
 
 
 
 
 
     <!-- Button to show/hide sidebar -->
-<div class="menu-button" onclick="toggleSidebar()" style="margin-left: 3vw; margin-top: 3%; background-color: #333; border-radius: 2vw; border: 0.2vw solid #333; position: ; top: 0; left: 0; font-size: 1.5vh;">
+
+    <div class="menu-button" onclick="toggleSidebar()" style="margin-left: 3vw; margin-top: 5vw; background-color: #333; border-radius: 2vw; border: 0.2vw solid #333; position: ; top: 0; left: 0; font-size: 2vw;">
     &#9776; <!-- أيقونة القائمة -->
 </div>
 
     
+
+
 
 
 
@@ -361,11 +320,10 @@
   <a href="#" onclick="showRoadmap()">Roadmap</a>
   <a href="#" onclick="showKyc()">kyc</a>
   <a id="telegramLink" href="https://www.xsun.pro/">Site</a>
-  <br>
+    <a id="telegramLink" href="https://xsunapp.github.io/Xsun-team.app/">Whitepaper</a>
+  
 
   <button id="signOutButton" style="margin-left: 15px;">Sign Out</button>
-
-
 
 
 
@@ -401,7 +359,7 @@
 
 
     <!-- Roadmap container -->
-  <div id="roadMapContainer">
+  <div id="roadMapContainer" style="">
 
 
     <!-- Button to show/hide sidebar -->
@@ -514,124 +472,116 @@
 
 
 
-<div id="navButtons" style="position: fixed; bottom: 0vw; left: vw; background-color: black; padding: 1px; display: flex; justify-content: space-between; width: 100%; border-radius: 2vw;">
-<button onclick="showInviteFriends()" style="border-top-left-radius: 4vw; 
-border-bottom-right-radius: 4vw;
-font-size: vw; background-color: #333; margin-left: 2%; color: white;">👥 Referral</button>
-
-<button onclick="showKyc()" style= " font-size: vw; background-color: #333; color: white;">🔐 KYC</button>
-<button onclick="showEarnings()" style= "font-size: vw; background-color: #333; color: white;"> 💳Wallet</button>
-
-    <button onclick="showMiningInterface()" style= "border-radius: vw; font-size: vw; background-color: #333; margin-right: 3.7%; color: white;">🏠 Home</button>
-
-     </div>
+<div id="navButtons" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #333; padding: 1vh 0; display: flex; justify-content: space-around; border-radius: 1vw;">
+  <button onclick="showInviteFriends()" style="font-size: 2.5vw; color: black;">👥 Referral</button>
+  <button onclick="showKyc()" style="font-size: 2.5vw; color: black;">🔐 KYC</button>
+  <button onclick="showEarnings()" style="font-size: 2.5vw; color: black;">💳 Wallet</button>
+    <button onclick="showMiningInterface()" style="font-size: 2.5vw; color: black;">🏠 Home</button>
 </div>
 
-    <!-- زر Home للانتقال إلى الواجهة الرئيسية -->
-<div id="earningsContainer">
+</div>
 
-  <div id="message" class="message" style="font-weight: bold; color: white; font-size: 4vh; z-index: 10002; position: absolute; left: 50%; transform: translate(-50%, -50%); display: none; border-radius: 5px;">
+
+<div id="earningsContainer"style="text-align: center; padding: 5px;">
+
+
+
+  
+
+  <!-- رسالة "Not open yet" -->
+  <div id="message" class="message" style="font-weight: bold; color: white; font-size: 4vh; position: absolute; left: 50%; transform: translate(-50%, -50%); display: none; border-radius: 5px; z-index: 10002;">
       Not open yet
   </div>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <br>
+  <!-- حاوية الرصيد -->
 
-<div style="display: flex; align-items: center; flex-direction: column; justify-content: center; margin: 4.7vw 4vw; padding: 1vw; z-index: 1000;">
+
+<div style="display: flex; align-items: flex-start; flex-direction: column; justify-content: center; margin: 4.7vw 4vw; padding: 1vw; z-index: 1000;">
     <!-- حاوية الرصيد -->
-    <div style="display: flex; align-items: center; justify-content: center;">
+    <div style="display: flex; align-items: center; justify-content: center; background-color: ;border-radius: px;">
         <!-- شعار عملة USDT -->
-        <img src="https://firebasestorage.googleapis.com/v0/b/xsun-b171d.appspot.com/o/usdt_(1).png?alt=media&token=01bc16b0-d2f3-40cc-80c9-2ef15875f6d5" alt="" style="width: 8vw; height: 8vw; margin-right: 1vw;"> <!-- تعديل المسافة بين الشعار وعلامة الدولار -->
+ <!-- تعديل المسافة بين الشعار وعلامة الدو
+        لار -->
 
         <!-- علامة الدولار والرصيد -->
         <span style="font-size: 8vw; color: white;">$</span>
         <span style="width: 1vw;"></span> <!-- مسافة صغيرة بين رمز الدولار والرصيد -->
-        <span id="total-balance" style="font-size: 8vw; color: white; font-weight: bold;">0.00</span>
+        <span id="total-balance" style="font-size: 7vw; color: white; font-weight: bold;">0.00</span>
         
         <!-- مسافة بين الرصيد وأيقونة العين -->
         <span style="width: 2vw;"></span>
-        <span id="eye-toggle" onclick="toggleBalanceVisibility()" style="font-size: 5vw; color: white; cursor: pointer; margin-right: 10px;">
+        <span id="eye-toggle" onclick="toggleBalanceVisibility()" style="font-size: 5vw; color: lightgray; cursor: pointer; margin-right: 10px;">
             <i class="fas fa-eye" id="eye-icon" style="font-size: 5vw;"></i>
         </span>
     </div>
     
     <!-- النص التوضيحي أسفل الرصيد -->
-    <span style="color: white; font-size: 1.5vw; margin-top: 0.5vh; margin-right: vw;">Total Balance in USD</span>
-</div>
+    <span style="color: #333; font-size: 1.5vw; margin-top: 0.5vh; margin-left: 2vw; font-weight: bold">Total Balance in USD</span>
+
+   </div>
+   
+   
 
 
+<br>
+<div style="display: flex; justify-content: center; padding: 2vw 0; background-color: #333; text-align: center; border-radius: 3px; width: 92%; margin: 0 auto; flex; justify-content: space-around;">
+   
 
+  <!-- شريط الأدوات -->
 
-
-<div style="display: flex; gap: 2vw; justify-content: space-evenly; margin-right: vw; font-size: 1vh;">
-    
-    <!-- أيقونة الاستقبال -->
-    <div style="display: flex; flex-direction: column; align-items: center;">
-        <div style="width: 8vw; height: 8vw; border-radius: 50%; background-color: lightgray; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-            <i class="fas fa-arrow-down" style="font-size: 4vw; color: blue;"></i>
-        </div>
-        <span style="color: white; font-size: 2vw; margin-top: 0.5vh;">Receive</span>
+    <div style="text-align: center;">
+      <div style="width: 10vw; height: 10vw; border-radius: 50%; background-color: lightgray; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <i class="fas fa-arrow-down" style="font-size: 4vw; color: blue;"></i>
+      </div>
+      <span style="color: white; font-size: 2vw;">Receive</span>
     </div>
 
-    <!-- أيقونة الإرسال -->
-    <div style="display: flex; flex-direction: column; align-items: center;">
-        <div style="width: 8vw; height: 8vw; border-radius: 50%; background-color: lightgray; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-            <i class="fas fa-arrow-up" style="font-size: 4vw; color: green;"></i>
-        </div>
-        <span style="color: white; font-size: 2vw; margin-top: 0.5vh;">Send</span>
+    <div style="text-align: center;">
+      <div style="width: 10vw; height: 10vw; border-radius: 50%; background-color: lightgray; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <i class="fas fa-arrow-up" style="font-size: 4vw; color: green;"></i>
+      </div>
+      <span style="color: white; font-size: 2vw;">Send</span>
     </div>
 
-    <!-- أيقونة الشراء -->
-    <div style="display: flex; flex-direction: column; align-items: center;">
-        <div style="width: 8vw; height: 8vw; border-radius: 50%; background-color: lightgray; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-            <i class="fas fa-shopping-cart" style="font-size: 4vw; color: black;"></i>
-        </div>
-        <span style="color: white; font-size: 2vw; margin-top: 0.5vh;">Buy</span>
+    <div style="text-align: center;">
+      <div style="width: 10vw; height: 10vw; border-radius: 50%; background-color: lightgray; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <i class="fas fa-shopping-cart" style="font-size: 4vw; color: black;"></i>
+      </div>
+      <span style="color: white; font-size: 2vw;">Buy</span>
     </div>
 
-    <!-- أيقونة البيع -->
-    <div style="display: flex; flex-direction: column; align-items: center;">
-        <div style="width: 8vw; height: 8vw; border-radius: 50%; background-color: lightgray; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-            <i class="fas fa-landmark" style="font-size: 4vw; color: black;"></i>
-        </div>
-        <span style="color: white; font-size: 2vw; margin-top: 0.5vh;">Sell</span>
+    <div style="text-align: center;">
+      <div style="width: 10vw; height: 10vw; border-radius: 50%; background-color: lightgray; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <i class="fas fa-landmark" style="font-size: 4vw; color: black;"></i>
+      </div>
+      <span style="color: white; font-size: 2vw;">Sell</span>
     </div>
 
-    <!-- أيقونة السجل -->
-    <div style="display: flex; flex-direction: column; align-items: center;">
-        <div style="width: 8vw; height: 8vw; border-radius: 50%; background-color: lightgray; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-            <i class="fas fa-history" style="font-size: 4vw; color: black;"></i>
-        </div>
-        <span style="color: white; font-size: 2vw; margin-top: 0.5vh;">History</span>
+    <div style="text-align: center;">
+      <div style="width: 10vw; height: 10vw; border-radius: 50%; background-color: lightgray; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+        <i class="fas fa-history" style="font-size: 4vw; color: black;"></i>
+      </div>
+      <span style="color: white; font-size: 2vw;">History</span>
     </div>
-    
-</div>
-
-        
-
-        
-
-
-  <div style="display: flex; flex-direction: column; align-items: center; margin-top: 5vh; overflow-y: auto;">
-    
-    
-
-
-    
-    
-    
-    <!-- العملات -->
-    <div style="width: 90%; margin-bottom: 15px;">
-      <div style="border: 1px solid #333; cursor: pointer; padding: 10px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;" onclick="openPopup('Xsun')">
+  </div>
+  <br><br>
+  <!-- قائمة العملات -->
+  <div style="display: flex; flex-direction: column; align-items: center; max-height: 70vh; overflow-y: auto;">
+    <div style="width: 90%; margin-bottom: 10px;">
+      <div style="border: 1px solid #333; padding: 10px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="openPopup('Xsun')">
         <div style="display: flex; align-items: center;">
-          <img src="https://firebasestorage.googleapis.com/v0/b/xsun-b171d.appspot.com/o/dydx-3d-icon-download-in-png-blend-fbx-gltf-file-formats--bitcoin-logo-currency-finance-glass-crypto-coin-vol-2-pack-science-technology-icons-6876181.png?alt=media&token=becf4105-85b1-4ef7-bb0f-634c3651e9a5" alt="" style="width: 40px; height: 40px; margin-right: 5px;"> 
+          <img src="https://firebasestorage.googleapis.com/v0/b/xsun-b171d.appspot.com/o/dydx-3d-icon-download-in-png-blend-fbx-gltf-file-formats--bitcoin-logo-currency-finance-glass-crypto-coin-vol-2-pack-science-technology-icons-6876181.png?alt=media&token=becf4105-85b1-4ef7-bb0f-634c3651e9a5" alt="" style="width: 40px; height: 40px; margin-right: 5px;">
           <span style="font-size: 4.5vw;">𝐗𝐒𝐔𝐍</span>
         </div>
         <span class="balance" id="totalBalance" style="font-size: 4.5vw; color: white;">00.00</span>
-        <span id="totalBalanceInUSD" style="font-size: 4.5vw; color: white; font-weight: bold;">$00.00</span>
+                <span id="totalBalanceInUSD" style="font-size: 4.5vw; color: white; font-weight: bold;">$00.00</span>
       </div>
-</div>
-
-    <div style="width: 90%; margin-bottom: 15px;">
+    </div>
+    
+    
+      <div style="width: 90%; margin-bottom: 15px;">
       <div style="border: 1px solid #333; cursor: pointer; padding: 10px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;" onclick="openPopup('Swiza')">
         <div style="display: flex; align-items: center;">
           <img src="https://firebasestorage.googleapis.com/v0/b/xsun-b171d.appspot.com/o/swiss-flag-round-badge_1308-72045__1_-removebg-preview.png?alt=media&token=b4105cd6-a982-4fd3-9e5c-f7032b9200b2" alt="" style="width: 41px; height: 41px; margin-right: 5px;">
@@ -672,21 +622,35 @@ font-size: vw; background-color: #333; margin-left: 2%; color: white;">👥 Refe
         </div>
         <span class="balance" id="Usdt" style="font-size: 4.5vw;">50.00</span>
         <span class="balance" id="sweatValue" style="font-size: 4.5vw; color: white;">$00.00</span>
+        
       </div>
     </div>
-  </div>
-
-
+    </div>
+   <br><br>
+    <!-- نسخ إضافية لكل عملة -->
+    <!-- أضف العملات الأخرى هنا بنفس النمط -->
+    
+  
+<!-- نافذة الإرسال -->
+<!-- نافذة الإرسال -->
+<!-- نافذة الإرسال -->
 <div id="popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border: 1px solid black; border-radius: 10px; z-index: 9999; width: 320px;">
   <h2 style="margin-bottom: 10px; color: red;">Enter Address and Quantity</h2>
-  <label for="address" style="color: red; margin-bottom: 5px;">Address:</label><br>
-  <input type="text" id="address" name="address" style="margin-bottom: 10px; width: 280px; background-color: black; color: white;"><br>
-  <label for="quantity" style="margin-bottom: 5px; color: red;">Quantity:</label><br>
-  <input type="text" id="quantity" name="quantity" style="margin-bottom: 10px; width: 280px; background-color: black; color: white;"><br>
+
+  <div style="display: flex; align-items: center; margin-bottom: 10px;">
+    <label for="address" style="color: black; margin-bottom: 2vw;">Address:</label>
+    <input type="text" id="address" name="address" style="margin-left: 10px; width: 150px; background-color: black; color: white;">
+  </div>
+
+  <div style="display: flex; align-items: center; margin-bottom: 10px;">
+    <label for="quantity" style="margin-bottom: 2vw; color: black;">Quantity:</label>
+    <input type="text" id="quantity" name="quantity" style="margin-left: 10px; width: 150px; background-color: black; color: white;">
+  </div>
 
   <!-- Select Network -->
-  <label for="network" style="margin-bottom: 5px; color: black; font-weight: bolder;">Please select network chain!</label>
-  <select id="network" style="margin-bottom: 10px; width: 15vh; border-radius: 3px;">
+  <label for="network" style="margin-bottom: 5px; color: black; font-weight: bolder;">Please select a network chain!</label>
+  <br>
+  <select id="network" style="margin-bottom: 10px; width: 100%; border-radius: 3px; width: 25vw">
     <option value="Bsc20">Bsc20</option>
     <option value="Erc20">Erc20</option>
     <option value="Near">Near</option>
@@ -694,33 +658,37 @@ font-size: vw; background-color: #333; margin-left: 2%; color: white;">👥 Refe
 
   <!-- Buttons for each currency -->
   <div id="currencyButtons">
-    <div id="swizaButton" style="display: none;">
-      <button onclick="sendSwiza()" style="background-color: blue; color: white; padding: 5px 10px; border: none; border-radius: 5px;">Send</button>
+    <div id="swizaButton" style="display: none; margin-top: 10px; justify-content: ">
+      <button onclick="sendSwiza()" style="background-color: green; color: white; padding: 5px 10px; border: none; border-radius: 5px;">Send</button>
+      <button onclick="cancel()" style="background-color: red; color: white; padding: 5px 10px; border: none; border-radius: 5px; margin-left: 10px;">Cancel</button>
     </div>
 
-    <div id="xsunButton" style="display: none;">
-      <button onclick="sendXsun()" style="background-color: blue; color: white; padding: 5px 10px; border: none; border-radius: 5px; margin-top: 10px;">Send</button>
+    <div id="xsunButton" style="display: none; margin-top: 10px;">
+      <button onclick="sendXsun()" style="background-color: green; color: white; padding: 5px 10px; border: none; border-radius: 5px;">Send</button>
+      <button onclick="cancel()" style="background-color: red; color: white; padding: 5px 10px; border: none; border-radius: 5px; margin-left: 10px;">Cancel</button>
     </div>
 
-    <div id="bitcoinButton" style="display: none;">
-      <button onclick="sendBitcoin()" style="background-color: blue; color: white; padding: 5px 10px; border: none; border-radius: 5px; margin-top: 10px;">Send</button>
+    <div id="bitcoinButton" style="display: none; margin-top: 10px;">
+      <button onclick="sendBitcoin()" style="background-color: green; color: white; padding: 5px 10px; border: none; border-radius: 5px;">Send</button>
+      <button onclick="cancel()" style="background-color: red; color: white; padding: 5px 10px; border: none; border-radius: 5px; margin-left: 10px;">Cancel</button>
     </div>
 
-    <div id="nearButton" style="display: none;">
-      <button onclick="sendNear()" style="background-color: blue; color: white; padding: 5px 10px; border: none; border-radius: 5px; margin-top: 10px;">Send</button>
+    <div id="nearButton" style="display: none; margin-top: 10px;">
+      <button onclick="sendNear()" style="background-color: green; color: white; padding: 5px 10px; border: none; border-radius: 5px;">Send</button>
+      <button onclick="cancel()" style="background-color: red; color: white; padding: 5px 10px; border: none; border-radius: 5px; margin-left: 10px;">Cancel</button>
     </div>
 
-    <div id="usdtButton" style="display: none;">
-      <button onclick="sendUsdt()" style="background-color: blue; color: white; padding: 5px 10px; border: none; border-radius: 5px; margin-top: 10px;">Send</button>
+    <div id="usdtButton" style="display: none; margin-top: 10px;">
+      <button onclick="sendUsdt()" style="background-color: green; color: white; padding: 5px 10px; border: none; border-radius: 5px;">Send</button>
+      <button onclick="cancel()" style="background-color: red; color: white; padding: 5px 10px; border: none; border-radius: 5px; margin-left: 10px;">Cancel</button>
     </div>
   </div>
 
-  <button onclick="cancel()" style="background-color: red; color: white; padding: 5px 10px; border: none; border-radius: 5px; margin-top: 20px;">Cancel</button>
   <p id="reminder" style="color: red; display: none; margin-top: 10px;">Please enter address and currency name!</p>
-
 </div>
 
 
+    <!-- زر Home للانتقال إلى الواجهة الرئيسية -->
 
 
 
@@ -728,33 +696,15 @@ font-size: vw; background-color: #333; margin-left: 2%; color: white;">👥 Refe
 
 
 
+<div id="navButtons" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #333; padding: 1vh 0; display: flex; justify-content: space-around; border-radius: 1vw;">
+  <button onclick="showInviteFriends()" style="font-size: 2.5vw; color: black;">👥 Referral</button>
+  <button onclick="showKyc()" style="font-size: 2.5vw; color: black;">🔐 KYC</button>
+    <button onclick="showRoadmap()" style= " font-size: 2.5vw; color: black;">🗺️ Roadmap</button>
+    <button onclick="showMiningInterface()" style="font-size: 2.5vw; color: black;">🏠 Home</button>
+</div>
 
-
-
-
-
-
-
-
-<div id="navButtons" style="position: fixed; bottom: -0%; left: 0vw; background-color: transparent; padding: 1px; display: flex; justify-content: space-between; width: 100%; border-radius: 2vw; z-index: 10001">
-<button onclick="showInviteFriends()" style="border-top-left-radius: 4vw; border-bottom-right-radius: 4vw; font-size: vw; background-color: #333; margin-left: 2%; color: white;">👥 Referral</button>
-
-  
-<button onclick="showKyc()" style= " font-size: vw; background-color: #333;color: white;">🔐 KYC</button>
-
-    <button onclick="showRoadmap()" style= " font-size: vw; background-color: #333; color: white;">🗺️ Roadmap</button>
-    <button onclick="showMiningInterface()" style= "border-radius: vw; font-size: vw; background-color: #333; margin-right: 3.5%; color: white;">🏠 Home</button>
-
-     </div>
-
-  
-  
         
-        
-        
-        
-        
-        <!-- تكرار هذا لإنشاء مربعات إعلانية أخرى -->
+
     </div>
 </div>
 
@@ -874,17 +824,15 @@ font-size: vw; background-color: #333; margin-left: 2%; color: white;">👥 Refe
 
 
 
-<div id="navButtons" style="position: fixed; bottom: 0vw; left: 2vw; background-color: black; padding: 1px; display: flex; justify-content: space-between; width: 100%; border-radius: 2vw;">
-<button onclick="showInviteFriends()" style="border-top-left-radius: 4vw; border-bottom-right-radius: 4vw; font-size: vw; background-color: #333; margin-left: 0vw; color: white;">👥 Referral</button>
 
 
+<div id="navButtons" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #333; padding: 1vh 0; display: flex; justify-content: space-around; border-radius: 1vw;">
+  <button onclick="showInviteFriends()" style="font-size: 2.5vw; color: black;">👥 Referral</button>
+<button onclick="showEarnings()" style= "font-size: 2.5vw; color: black;"> 💳Wallet</button>
+  <button onclick="showRoadmap()" style=" font-size: 2.5vw; color: black;">🗺️ Roadmap</button>
+  <button onclick="showMiningInterface()" style="font-size: 2.5vw; color: black;">🏠 Home</button>
+</div>
 
-
-<button onclick="showEarnings()" style= "font-size: vw; background-color: #333; color: white;"> 💳Wallet</button>
-    <button onclick="showRoadmap()" style= " font-size: vw; background-color: #333; color: white;">🗺️ Roadmap</button>
-    <button onclick="showMiningInterface()" style= "border-radius: vw; font-size: vw; background-color: #333; margin-right: 5%; color: white;">🏠 Home</button>
-
-     </div>
 
 
 </div>
@@ -983,19 +931,14 @@ font-size: vw; background-color: #333; margin-left: 2%; color: white;">👥 Refe
 
 
 
+<div id="navButtons" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #333; padding: 1vh 0; display: flex; justify-content: space-around; border-radius: 1vw;">
 
 
-<div id="navButtons" style="position: fixed; bottom: 0vw; left: 0vw; background-color: transparent; padding: 1px; display: flex; justify-content: space-between; width: 100%; border-radius: 2vw;">
-
-  
- <button onclick="showRoadmap()" style= " font-size: vw; background: #333; border-top-left-radius: 4vw; border-bottom-right-radius: 4vw; margin-left: 2%; color: white;">🗺️ Roadmap</button>
-  
-<button onclick="showKyc()" style= " font-size: vw;  background-color: #333 ; color: white;">🔐 KYC</button>
-<button onclick="showEarnings()" style= "font-size: vw; background: #333; color: white;"> 💳Wallet</button>
-
-    <button onclick="showMiningInterface()" style= "border-radius: vw; font-size: vw; background-color: #333; margin-right: 4.5%; color: white;">🏠 Home</button>
-
-     </div>
+  <button onclick="showRoadmap()" style=" font-size: 2.5vw; color: black;">🗺️ Roadmap</button>
+  <button onclick="showKyc()" style= " font-size: 2.5vw; color: black;">🔐 KYC</button>
+  <button onclick="showEarnings()" style= "font-size: 2.5vw; color: black;"> 💳Wallet</button>
+  <button onclick="showMiningInterface()" style="font-size: 2.5vw; color: black;">🏠 Home</button>
+</div>
 
 </div>
 
@@ -1063,6 +1006,7 @@ body {
           background-color: black;
           color: #ecf0f1;
           margin: 0;
+          overflow-y: auto;
         
         }
         
@@ -1206,9 +1150,8 @@ body {
 
 #earningsContainer {
 display: none;
-  height: 120vh;
+  height: 100vh;
 }
-
 
 
 
@@ -1300,7 +1243,9 @@ p, button, input, strong {
 /* تعديل عرض النافذة المنبثقة */
 
 
-      
+
+
+
       
       
         /* إضافة هامش للعناصر */
@@ -1333,6 +1278,7 @@ p, button, input, strong {
             transition: 0.3s;
             position: relative; 
             font-weight: bolder;
+            overflow-y: auto;
            
              
            }
@@ -1340,7 +1286,11 @@ p, button, input, strong {
 
         .sidebar a:hover {
             background-color: black;
+            overflow-y: auto;
         }
+        
+        
+        
         /* Roadmap container */
      #roadMapContainer {
        display: none;
@@ -1357,7 +1307,8 @@ p, button, input, strong {
 
       
         .sidebar a:hover .tooltip {
-            display: inline-block; /* عند تحويل المؤشر إلى الكلمة */
+            display: inline-block
+           
         }
 
 
@@ -1413,8 +1364,12 @@ p, button, input, strong {
 
 
 
+/* نمط أساسي للجسم لتنسيق الخلفية */
 
 
+/* تحسينات ثلاثية الأبعاد للبطاقات */
+
+/* تحسين عناصر الإدخال في النافذة المنبثقة */
 
 
 
@@ -1434,6 +1389,7 @@ p, button, input, strong {
   /* شريط جانبي */
   #sidebar {
     z-index: 10000;
+   
     /* تأكد من زيادة هذه القيمة */
   }
   
@@ -2961,7 +2917,6 @@ window.addEventListener('load', async () => {
 // تحديث الدالة updateBtcBalanceInFirestore لتحديث الرصيد
 
 
-startMiningButton.addEventListener('click', startMining);
 
 
 const imageInput = document.querySelector("#imageInput");
